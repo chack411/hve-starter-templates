@@ -1,0 +1,25 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+coverage/
+bin/
+obj/
+__pycache__/
+*.py[cod]
+.venv/
+
+# Logs
+*.log
