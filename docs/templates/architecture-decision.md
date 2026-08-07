@@ -1,12 +1,18 @@
 # ADR-NNN: `[決めること]`
 
+## 実行記録
+
+| 処理 | 開始日時 | 終了日時 | 所要時間 | 実行した人またはエージェント |
+| --- | --- | --- | --- | --- |
+| `[作成、更新、確認など]` | `YYYY-MM-DD HH:mm:ss ±HH:mm` | `YYYY-MM-DD HH:mm:ss ±HH:mm` | `[例: 1時間20分]` | `[名前]` |
+
 ## 状態
 
 提案中
 
-## 日付と担当
+## 判断日時と担当
 
-- Date: `YYYY-MM-DD`
+- Decision datetime: `YYYY-MM-DD HH:mm:ss ±HH:mm`
 - Decision owners:
 - Related requirements: `REQ-NNN`
 
@@ -76,6 +82,6 @@ flowchart LR
 
 ## 人による確認
 
-| 確認する人 | 結果 | 日付 | メモ |
+| 確認する人 | 結果 | 確認日時 | メモ |
 | --- | --- | --- | --- |
-| | 確認待ち | | |
+| | 確認待ち | `YYYY-MM-DD HH:mm:ss ±HH:mm` | |

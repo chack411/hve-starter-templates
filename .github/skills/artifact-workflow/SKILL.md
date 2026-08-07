@@ -48,14 +48,26 @@ Keep only the documents needed to make and verify the prototype. Sections may be
 
 Do not use automatic continuation for production release, real confidential or personal data, regulated or safety-critical behavior, destructive operations, credentials, paid-resource creation, or an irreversible architecture choice. Set `入力待ち（HIL）` and ask before those actions regardless of `確認方法`. If the confirmed time limit becomes unrealistic, preserve a runnable primary flow, move optional work to known limitations, and continue according to the selected confirmation method.
 
+## Record Execution Time
+
+For every document creation, update, or review:
+
+1. Capture the system clock at the start. Add a new row to the document's `実行記録` and to `docs/project-status.md` with the start datetime.
+2. Use `YYYY-MM-DD HH:mm:ss ±HH:mm`, including the local UTC offset. Do not reuse the conversation date as an execution time.
+3. At the end, capture the system clock again. Fill the same row's end datetime and elapsed duration.
+4. Append records. Never replace earlier execution rows.
+5. For a phase, also update the matching `工程一覧` row. Record the phase start when it becomes `作業中`, and its end and duration when it becomes `仮完了`, `確認待ち`, or `完了`.
+6. Leave a running process without an end datetime. Do not count time waiting for human input unless the recorded duration explicitly says it includes waiting time.
+
 ## Start a Phase
 
 1. In `通常`, confirm the preceding gate is approved. In `短時間試作`, accept `仮完了` with `最後にまとめて確認` or explicit approval recorded as `完了` with `工程ごとに確認`.
 2. Read approved upstream artifacts and traceability.
 3. Identify required outputs, owners, open questions, and risks.
-4. Set the current process to `作業中` and name the document being created.
+4. Capture and record the phase start datetime.
+5. Set the current process to `作業中` and name the document being created.
 
-In `docs/project-status.md`, write these values as `作業中`, `現在の工程`, and `作成中の文書`.
+In `docs/project-status.md`, write these values as `作業中`, `現在の工程`, `現在の工程の開始日時`, and `作成中の文書`.
 
 ## Complete a Phase
 
@@ -64,8 +76,9 @@ In `通常`:
 1. Run each required template checklist.
 2. Check links, stable IDs, evidence, assumptions, and unresolved risks.
 3. Request an independent quality review.
-4. Set status to `確認待ち`; never invent user confirmation.
-5. After explicit approval, record approver and date, update the decision log, then activate the next phase.
+4. Capture the phase end datetime, calculate the elapsed duration, and record both before setting status to `確認待ち`.
+5. Set status to `確認待ち`; never invent user confirmation.
+6. After explicit approval, record approver and confirmation datetime, update the decision log, then activate the next phase.
 
 In the user-facing progress table, use `確認待ち` before approval and `完了` after approval.
 
@@ -74,7 +87,8 @@ In `短時間試作`:
 1. Check only what is needed to support the primary flow and the next decision.
 2. Record missing evidence, assumptions, skipped documents, and risks.
 3. With `最後にまとめて確認`, set the intermediate process to `仮完了` and continue without stopping. Reserve `確認待ち` for the consolidated final review or a safety-related decision.
-4. With `工程ごとに確認`, set an intermediate process to `入力待ち（HIL）`, fill every HIL field, and ask for `承認` or `修正`. After `承認`, record the approver and date, mark that process row `完了`, clear the HIL section, set the overall status to the next process's `作業中`, and start it. After `修正`, set the process to `作業中`, clear the HIL section, apply the requested changes, rerun the lightweight check, and ask again. This rule does not replace the final review's `確認待ち` state.
+4. Capture and record the phase end datetime and elapsed duration before setting it to `仮完了`, `入力待ち（HIL）`, or `確認待ち`.
+5. With `工程ごとに確認`, set an intermediate process to `入力待ち（HIL）`, fill every HIL field, and ask for `承認` or `修正`. After `承認`, record the approver and confirmation datetime, mark that process row `完了`, clear the HIL section, set the overall status to the next process's `作業中`, and start it. After `修正`, capture a new start datetime, set the process to `作業中`, clear the HIL section, apply the requested changes, rerun the lightweight check, and ask again. This rule does not replace the final review's `確認待ち` state.
 
 ## Wait for Human Input (HIL)
 

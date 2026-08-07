@@ -1,8 +1,14 @@
 # 判断記録
 
-| ID | Date | Decision | Status | Rationale | Inputs | Consequences | Owner | Revisit trigger |
+## 実行記録
+
+| 処理 | 開始日時 | 終了日時 | 所要時間 | 実行した人またはエージェント |
+| --- | --- | --- | --- | --- |
+| `[作成、更新、確認など]` | `YYYY-MM-DD HH:mm:ss ±HH:mm` | `YYYY-MM-DD HH:mm:ss ±HH:mm` | `[例: 1時間20分]` | `[名前]` |
+
+| ID | Decision datetime | Decision | Status | Rationale | Inputs | Consequences | Owner | Revisit trigger |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| DEC-001 | `YYYY-MM-DD` | | Proposed / Accepted / Superseded | | `INSIGHT`, `REQ`, or `ADR` IDs | | | |
+| DEC-001 | `YYYY-MM-DD HH:mm:ss ±HH:mm` | | Proposed / Accepted / Superseded | | `INSIGHT`, `REQ`, or `ADR` IDs | | | |
 
 ## 書き方
 
