@@ -8,4 +8,4 @@
 - `risk-register.md`: `../templates/risk-register.md` から作成
 - `traceability-matrix.md`: `../templates/traceability-matrix.md` から作成
 
-`/00-start-project` を実行すると、これらの文書を作成します。すべての工程で参照します。`/00-fast-prototype` では、主な操作の作成と確認に必要な文書だけを作り、省略したものと理由を `docs/project-status.md` に記録します。
+`/00-start-project` を実行すると、進め方に応じて文書を作成します。`通常` では、これらの文書を作成してすべての工程で参照します。`短時間試作` では、主な操作の作成と確認に必要な文書だけを作り、省略したものと理由を `docs/project-status.md` に記録します。

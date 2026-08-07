@@ -50,7 +50,7 @@ Do not use automatic continuation for production release, real confidential or p
 
 ## Record Execution Time
 
-For every document creation, update, or review:
+For every project-output creation, update, or review. Do not write session-specific execution rows into repository templates, README files, instructions, skills, prompts, or the uninitialized `docs/project-status.md` template.
 
 1. Capture the system clock at the start. Add a new row to the document's `実行記録` and to `docs/project-status.md` with the start datetime.
 2. Use `YYYY-MM-DD HH:mm:ss ±HH:mm`, including the local UTC offset. Do not reuse the conversation date as an execution time.
