@@ -3,7 +3,7 @@ name: 07 Design Data Model
 description: "Design the conceptual and logical data model, dictionary, quality rules, history, audit, retention, import, indexing, partitioning, and recovery approach."
 argument-hint: "Optional source schemas, volume estimates, retention, or compliance constraints"
 agent: Solution Architect
-tools: [read, search, edit, vscode/askQuestions]
+tools: [read, search, edit, execute, vscode/askQuestions]
 ---
 
 Design data behavior for approved MVP requirements.

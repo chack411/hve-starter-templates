@@ -3,7 +3,7 @@ name: 11 Create Delivery Plan
 description: "Create a phased implementation roadmap with milestones, dependencies, estimate ranges, resources, risks, test strategy, release, rollback, and acceptance gates."
 argument-hint: "Optional target date, team composition, capacity, or release constraints"
 agent: Delivery Planner
-tools: [read, search, edit, vscode/askQuestions]
+tools: [read, search, edit, execute, vscode/askQuestions]
 ---
 
 Create a delivery plan from approved product and architecture artifacts.

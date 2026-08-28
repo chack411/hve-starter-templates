@@ -3,7 +3,7 @@ name: 02 Research Alternatives
 description: "Research open-source, lightweight, SaaS, low-code, data-platform, and custom-build alternatives for the approved project problem."
 argument-hint: "Optional alternative categories or constraints to emphasize"
 agent: Market Researcher
-tools: [read, search, web, edit, vscode/askQuestions]
+tools: [read, search, web, edit, execute, vscode/askQuestions]
 ---
 
 Evaluate viable alternative solution categories for the approved problem and constraints.

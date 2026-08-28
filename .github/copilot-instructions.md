@@ -36,7 +36,7 @@
 ## Documentation
 
 - In `通常`, use the templates under `docs/templates/` and preserve their required sections. In `短時間試作`, keep only documents needed to build and verify the primary flow; record skipped documents and reasons in project status.
-- For project outputs created from templates, record the actual start datetime in that document's `実行記録` at the start of every creation, update, or review. At the end, record the actual end datetime and elapsed duration. Append a row instead of overwriting prior records.
+- For project outputs created from templates, use the `execute` tool to capture the system clock immediately before work and record that actual start datetime in the document's `実行記録`. Capture it again immediately after work and record the actual end datetime and elapsed duration. Append a row instead of overwriting prior records.
 - Do not add session-specific execution records to repository templates, README files, instructions, skills, prompts, or the uninitialized `docs/project-status.md` template. Keep only placeholders and examples in template files.
 - Use `YYYY-MM-DD HH:mm:ss ±HH:mm` for execution, update, decision, and confirmation datetimes. Keep date-only values for calendar dates such as deadlines and publication dates. Never infer missing historical times; mark them as `時刻未記録` and the duration as `未記録`.
 - Record each process's start datetime, end datetime, and duration in `docs/project-status.md`. Keep the current process start datetime and update history synchronized with the document records.

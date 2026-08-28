@@ -41,7 +41,7 @@ When `docs/project-status.md` selects `短時間試作`:
 - Delegate an approved implementation task to `implementation-engineer`.
 - Delegate phase-gate and coverage review to `quality-reviewer`.
 
-Give each specialist explicit input paths, one expected output, and completion criteria. Do not ask multiple specialists to edit the same artifact concurrently.
+Give each specialist explicit input paths, one expected output, and completion criteria. When the specialist creates, updates, or reviews a project output, require it to use `execute` to capture and return the actual start datetime, end datetime, and elapsed duration. After delegation, verify those values were recorded in the output and `docs/project-status.md`; treat `時刻未記録` from the current operation as an explicit tool or procedure failure, not a completed time record. Do not ask multiple specialists to edit the same artifact concurrently.
 
 ## Gate Rules
 

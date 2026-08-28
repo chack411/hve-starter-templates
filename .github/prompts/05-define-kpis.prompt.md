@@ -3,7 +3,7 @@ name: 05 Define KPIs
 description: "Define decision-oriented KPIs with formulas, units, grain, sources, owners, baselines, targets, thresholds, and dashboard presentation."
 argument-hint: "Optional business decisions or KPI areas to prioritize"
 agent: Business Analyst
-tools: [read, search, edit, vscode/askQuestions]
+tools: [read, search, edit, execute, vscode/askQuestions]
 ---
 
 Define KPIs from the approved project brief and current-state analysis.

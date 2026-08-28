@@ -3,7 +3,7 @@ name: 00 Start Project
 description: "Start an HVE application project in either normal or short-prototype mode, from kickoff through the mode-appropriate next step."
 argument-hint: "Problem, users, desired outcome, and optionally the mode, time limit, primary flow, success check, exclusions, and confirmation method"
 agent: Hyper Velocity Engineering Lead
-tools: [read, search, edit, agent, todo, vscode/askQuestions]
+tools: [read, search, edit, execute, agent, todo, vscode/askQuestions]
 ---
 
 Initialize this repository for the application described by the user. This is the single entry point for both `通常` and `短時間試作`.
@@ -15,7 +15,7 @@ Initialize this repository for the application described by the user. This is th
 3. After the mode is known, ask only for missing information needed to define the problem, users, desired outcome, scope, constraints, and success measures. For `通常`, also confirm initial research questions. For `短時間試作`, also confirm the time limit, one primary user flow, its observable success check, explicit exclusions, and whether `確認方法` is `工程ごとに確認` or `最後にまとめて確認`.
 4. Before asking, set `docs/project-status.md` to `入力待ち（HIL）` and fill in what to answer, answer examples or choices, what starts after each choice, and a resume prompt. Use `askQuestions`.
 5. After the answer, record `進め方` and any mode-specific values, clear the HIL entry, and continue in the same request. Do not require another kickoff prompt.
-6. Record actual start and end datetimes and elapsed duration as required by the artifact workflow. If either timestamp was not captured, do not infer it; mark that timestamp as `時刻未記録` and the duration as `未記録`.
+6. Use `execute` to capture the system clock at the start and end, then record the actual datetimes and elapsed duration as required by the artifact workflow. If the tool is unavailable or fails, do not infer a timestamp; mark it as `時刻未記録`, mark the duration as `未記録`, and report that the time-recording requirement was not satisfied.
 
 ## Normal mode
 

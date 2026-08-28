@@ -52,12 +52,13 @@ Do not use automatic continuation for production release, real confidential or p
 
 For every project-output creation, update, or review. Do not write session-specific execution rows into repository templates, README files, instructions, skills, prompts, or the uninitialized `docs/project-status.md` template.
 
-1. Capture the system clock at the start. Add a new row to the document's `実行記録` and to `docs/project-status.md` with the start datetime.
+1. Immediately before editing or reviewing, use the `execute` tool to capture the system clock. On Windows PowerShell, run `Get-Date -Format "yyyy-MM-dd HH:mm:ss zzz"`; on Linux or macOS, run `date '+%Y-%m-%d %H:%M:%S %:z'` or the platform-equivalent command that includes the local UTC offset. Add a new row to the document's `実行記録` and to `docs/project-status.md` with that output as the start datetime.
 2. Use `YYYY-MM-DD HH:mm:ss ±HH:mm`, including the local UTC offset. Do not reuse the conversation date as an execution time.
-3. At the end, capture the system clock again. Fill the same row's end datetime and elapsed duration.
+3. Immediately after the work, use the `execute` tool again to capture the end datetime. Fill the same row's end datetime and calculate elapsed duration from the two captured values.
 4. Append records. Never replace earlier execution rows.
 5. For a phase, also update the matching `工程一覧` row. Record the phase start when it becomes `作業中`, and its end and duration when it becomes `仮完了`, `確認待ち`, or `完了`.
 6. Leave a running process without an end datetime. Do not count time waiting for human input unless the recorded duration explicitly says it includes waiting time.
+7. If `execute` is unavailable or the clock command fails during the current operation, do not infer a value from the conversation date. Record `時刻未記録` and `未記録`, report the tool limitation explicitly, and do not present time-recording requirements as satisfied. Continue to preserve `時刻未記録` for historical entries whose actual time cannot be recovered.
 
 ## Start a Phase
 
@@ -111,4 +112,4 @@ When new evidence invalidates confirmed work, record the triggering evidence, af
 
 ## Handoff Contract
 
-A handoff states current phase, approved inputs, exact output path, completion criteria, stable IDs affected, constraints, open questions, and prohibited scope. Do not assign concurrent edits to the same artifact.
+A handoff states current phase, approved inputs, exact output path, completion criteria, stable IDs affected, constraints, open questions, and prohibited scope. For any creation, update, or review of a project output, require the specialist to capture and return the actual start datetime, end datetime, and elapsed duration according to `Record Execution Time`. Do not assign concurrent edits to the same artifact.

@@ -3,7 +3,7 @@ name: 03 Research Industry Patterns
 description: "Research industry and organization-size implementation patterns, data sources, integrations, metrics, decision processes, and recurring bottlenecks."
 argument-hint: "Industries, organization sizes, or regulatory contexts"
 agent: Market Researcher
-tools: [read, search, web, edit, vscode/askQuestions]
+tools: [read, search, web, edit, execute, vscode/askQuestions]
 ---
 
 Research implementation and operating patterns for the relevant industries and organization sizes.

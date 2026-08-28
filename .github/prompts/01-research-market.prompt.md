@@ -3,7 +3,7 @@ name: 01 Research Market
 description: "Research current market trends, major players, capability patterns, adoption examples, and decision criteria for the project's application domain."
 argument-hint: "Optional market, geography, segment, or time horizon"
 agent: Market Researcher
-tools: [read, search, web, edit, vscode/askQuestions]
+tools: [read, search, web, edit, execute, vscode/askQuestions]
 ---
 
 Research the market questions in `docs/project/project-brief.md` for the user-specified scope.

@@ -16,6 +16,7 @@ This is a read-only review procedure. The reviewer reports defects and evidence;
 4. Stable IDs resolve in both directions and orphan checks are complete.
 5. Critical risks have owners, responses, triggers, and verification.
 6. Claims of completion are supported by reviewable evidence.
+7. Current-operation execution records contain system-clock-derived start and end datetimes with UTC offsets and a consistent elapsed duration. Treat `時刻未記録` for the operation under review as a procedure failure; do not apply this finding retroactively to historical records whose actual time cannot be recovered.
 
 ## 4-Hour Prototype Review
 
