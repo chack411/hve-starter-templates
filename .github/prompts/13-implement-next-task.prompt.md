@@ -3,7 +3,6 @@ name: 13 Implement Next Task
 description: "Implement and validate one approved dependency-ready TASK vertical slice, including source, tests, task evidence, and traceability updates."
 argument-hint: "TASK-NNN, or leave blank to select the first ready approved task"
 agent: Implementation Engineer
-tools: [read, search, edit, execute, vscode/askQuestions]
 ---
 
 Implement exactly one approved implementation task. In `短時間試作`, the kickoff-confirmed primary flow provides prototype approval for its task.

@@ -12,6 +12,13 @@
 - When human input blocks progress, set `docs/project-status.md` to `入力待ち（HIL）` before using VS Code `askQuestions`. Record what to answer, available choices, what starts after the answer, and a resume prompt.
 - After the answer, record the decision, clear the input wait, and continue when possible.
 
+## Agent Tools
+
+- Treat each custom agent's `tools` field as the single source of truth for that role's capabilities.
+- Omit `tools` from prompt files so they inherit the referenced custom agent's tools. A prompt-level `tools` field replaces rather than extends the agent list.
+- Add prompt-level tools only when a task intentionally needs a narrower capability set. In that case, specify the complete replacement list and explain the restriction in the prompt body.
+- Keep agent tools at least privilege and retain a tool only when the agent instructions describe its use.
+
 ## Evidence
 
 - Separate verified facts, inferences, assumptions, and recommendations.

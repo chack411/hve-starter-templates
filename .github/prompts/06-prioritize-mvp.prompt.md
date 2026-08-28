@@ -3,7 +3,6 @@ name: 06 Prioritize MVP
 description: "Create testable product requirements and prioritize the smallest coherent MVP by value, learning, effort, operations, and readiness."
 argument-hint: "Optional candidate capabilities, constraints, or release target"
 agent: Product Planner
-tools: [read, search, edit, execute, vscode/askQuestions]
 ---
 
 Define and prioritize the product outcome from approved research, current-state analysis, and KPI catalog.

@@ -3,7 +3,6 @@ name: 12 Break Down Implementation
 description: "Break an approved delivery milestone into small dependency-aware vertical-slice TASK artifacts with acceptance criteria, requirement links, and planned tests."
 argument-hint: "Milestone or requirement IDs to decompose"
 agent: Delivery Planner
-tools: [read, search, edit, execute, vscode/askQuestions]
 ---
 
 Create implementation tasks for the requested approved milestone.

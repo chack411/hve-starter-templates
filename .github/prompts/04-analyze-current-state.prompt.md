@@ -3,7 +3,6 @@ name: 04 Analyze Current State
 description: "Analyze the organization's current business process, actors, systems, data flow, manual work, bottlenecks, baselines, root causes, and persona needs."
 argument-hint: "Provide interviews, current tools, process notes, samples, and known metrics"
 agent: Business Analyst
-tools: [read, search, edit, execute, vscode/askQuestions]
 ---
 
 Create an evidence-based current-state analysis from supplied organizational information.

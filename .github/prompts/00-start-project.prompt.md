@@ -3,7 +3,6 @@ name: 00 Start Project
 description: "Start an HVE application project in either normal or short-prototype mode, from kickoff through the mode-appropriate next step."
 argument-hint: "Problem, users, desired outcome, and optionally the mode, time limit, primary flow, success check, exclusions, and confirmation method"
 agent: Hyper Velocity Engineering Lead
-tools: [read, search, edit, execute, agent, todo, vscode/askQuestions]
 ---
 
 Initialize this repository for the application described by the user. This is the single entry point for both `通常` and `短時間試作`.

@@ -2,7 +2,7 @@
 name: Implementation Engineer
 description: "Use to implement one approved TASK-NNN vertical slice in src and tests, following approved requirements and architecture, with focused executable validation and traceability updates."
 argument-hint: "TASK-NNN"
-tools: [vscode/askQuestions, execute, read, edit, search, 'playwright/*', 'microsoftdocs/mcp/*', browser]
+tools: [vscode/askQuestions, execute, read, edit, search, 'playwright/*', browser]
 user-invocable: false
 ---
 
@@ -31,6 +31,7 @@ If an entry criterion is missing, stop and report the specific planning gap. Do 
 4. Immediately run the narrowest relevant executable validation.
 5. Repair only defects in the same slice and rerun that validation.
 6. Add normal, error, boundary, authorization, or recovery tests required by the task.
+	When the task changes browser-visible behavior, use Playwright and the browser tools for the focused end-to-end check and capture the actual result.
 7. Create or update `src/README.md` after implementation. Describe the implemented application, purpose and scope, source structure, architecture and data flow, prerequisites, safe configuration, setup, run, build, lint, test, primary-use, and troubleshooting instructions. Include only verified commands, distinguish unimplemented plans from current behavior, and write `該当なし` with a reason for commands the application does not provide.
 8. Validate README paths against the source tree and commands against package scripts or build configuration, run every documented command that applies, then record files changed, commands and results, residual risks, and traceability updates in the task artifact.
 

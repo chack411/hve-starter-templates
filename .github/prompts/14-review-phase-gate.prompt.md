@@ -3,7 +3,6 @@ name: 14 Review Phase Gate
 description: "Run an independent read-only quality review of the current or specified phase and return findings plus a PASS, CONDITIONAL, or FAIL verdict."
 argument-hint: "Phase name or implementation TASK-NNN"
 agent: Quality Reviewer
-tools: [read, search, execute, vscode/askQuestions]
 ---
 
 Review the requested phase or implementation task against `docs/project-status.md`, required templates, approved upstream artifacts, and traceability.

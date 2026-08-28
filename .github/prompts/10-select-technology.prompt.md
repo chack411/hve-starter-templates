@@ -3,7 +3,6 @@ name: 10 Select Technology
 description: "Evaluate and select frontend, backend, data, integration, and operational technologies against approved architecture drivers and team constraints."
 argument-hint: "Optional preferred or prohibited technologies and team skills"
 agent: Solution Architect
-tools: [read, search, web, edit, execute, vscode/askQuestions]
 ---
 
 Select a maintainable technology stack for the approved architecture.

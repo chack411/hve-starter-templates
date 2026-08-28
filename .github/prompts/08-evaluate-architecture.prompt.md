@@ -3,7 +3,6 @@ name: 08 Evaluate Architecture
 description: "Compare viable architecture patterns against requirements and quality drivers, then record a recommended architecture and explicit trade-offs as ADRs."
 argument-hint: "Optional deployment, integration, security, cost, or team constraints"
 agent: Solution Architect
-tools: [read, search, web, edit, execute, vscode/askQuestions]
 ---
 
 Evaluate architecture options for the approved MVP.
