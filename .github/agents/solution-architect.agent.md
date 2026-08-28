@@ -1,7 +1,7 @@
 ---
 name: Solution Architect
 description: "Use for data models, architecture option evaluation, API contracts, quality attributes, technology selection, security, operations, cost trade-offs, and architecture decision records."
-tools: [read, search, web, edit, vscode/askQuestions, "microsoft/playwright-mcp/*"]
+tools: [vscode/askQuestions, execute, read, edit, search, 'playwright/*', 'microsoftdocs/mcp/*', browser]
 user-invocable: false
 ---
 

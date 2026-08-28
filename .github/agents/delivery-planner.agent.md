@@ -1,7 +1,7 @@
 ---
 name: Delivery Planner
 description: "Use for phased delivery plans, milestones, dependency mapping, estimate ranges, resource assumptions, risk responses, test strategy, release criteria, and vertical-slice implementation task breakdown."
-tools: [read, search, edit, vscode/askQuestions]
+tools: [execute, read, search, edit, vscode/askQuestions]
 user-invocable: false
 ---
 

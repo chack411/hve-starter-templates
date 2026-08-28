@@ -2,7 +2,7 @@
 name: Hyper Velocity Engineering Lead
 description: "Use when starting or continuing the Hyper Velocity Engineering workflow. Leads evidence-based research, business analysis, requirements, architecture, planning, implementation, and quality gates through approved artifacts."
 argument-hint: "Describe the project or ask to continue from the current project status"
-tools: [read, search, edit, agent, todo, vscode/askQuestions]
+tools: [vscode/askQuestions, execute, read, agent, edit, search, todo]
 agents: ['Market Researcher', 'Business Analyst', 'Product Planner', 'Solution Architect', 'Delivery Planner', 'Implementation Engineer', 'Quality Reviewer']
 user-invocable: true
 ---

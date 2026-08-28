@@ -1,7 +1,7 @@
 ---
 name: Product Planner
 description: "Use for product requirements, user stories, measurable acceptance criteria, non-functional requirements, MVP prioritization, scope exclusions, and outcome-based release boundaries."
-tools: [read, search, edit, vscode/askQuestions]
+tools: [execute, read, search, edit, vscode/askQuestions]
 user-invocable: false
 ---
 

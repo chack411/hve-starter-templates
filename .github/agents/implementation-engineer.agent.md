@@ -2,7 +2,7 @@
 name: Implementation Engineer
 description: "Use to implement one approved TASK-NNN vertical slice in src and tests, following approved requirements and architecture, with focused executable validation and traceability updates."
 argument-hint: "TASK-NNN"
-tools: [read, search, edit, execute, vscode/askQuestions, "microsoft/playwright-mcp/*"]
+tools: [vscode/askQuestions, execute, read, edit, search, 'playwright/*', 'microsoftdocs/mcp/*', browser]
 user-invocable: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: Quality Reviewer
 description: "Use for read-only phase-gate review, artifact consistency checks, evidence quality, requirement coverage, traceability, implementation validation, and pass, conditional, or fail verdicts."
-tools: [read, search, vscode/askQuestions]
+tools: [execute, read, search, vscode/askQuestions]
 user-invocable: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: Business Analyst
 description: "Use for current-state business process analysis, personas, data flows, bottlenecks, quantitative baselines, root-cause hypotheses, stakeholder needs, and KPI definitions."
-tools: [read, search, edit, vscode/askQuestions]
+tools: [execute, read, search, edit, vscode/askQuestions]
 user-invocable: false
 ---
 
