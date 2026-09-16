@@ -14,7 +14,7 @@ Initialize this repository for the application described by the user. This is th
 3. After the mode is known, ask only for missing information needed to define the problem, users, desired outcome, scope, constraints, and success measures. For `通常`, also confirm initial research questions. For `短時間試作`, also confirm the time limit, one primary user flow, its observable success check, explicit exclusions, and whether `確認方法` is `工程ごとに確認` or `最後にまとめて確認`.
 4. Before asking, set `docs/project-status.md` to `入力待ち（HIL）` and fill in what to answer, answer examples or choices, what starts after each choice, and a resume prompt. Use `askQuestions`.
 5. After the answer, record `進め方` and any mode-specific values, clear the HIL entry, and continue in the same request. Do not require another kickoff prompt.
-6. Use `execute` to capture the system clock at the start and end, then record the actual datetimes and elapsed duration as required by the artifact workflow. If the tool is unavailable or fails, do not infer a timestamp; mark it as `時刻未記録`, mark the duration as `未記録`, and report that the time-recording requirement was not satisfied.
+6. Follow `Record Execution Time` exactly: invoke the terminal-execution tool before the first artifact edit and again after validation. Do not infer that PowerShell is unavailable without an actual call. Use `時刻未記録` only after the required primary and fallback attempts fail, and report both errors.
 
 ## Normal mode
 

@@ -18,6 +18,7 @@
 - Omit `tools` from prompt files so they inherit the referenced custom agent's tools. A prompt-level `tools` field replaces rather than extends the agent list.
 - Add prompt-level tools only when a task intentionally needs a narrower capability set. In that case, specify the complete replacement list and explain the restriction in the prompt body.
 - Keep agent tools at least privilege and retain a tool only when the agent instructions describe its use.
+- `execute` is a tool set that exposes terminal execution; it is not a command or necessarily the displayed tool name. When instructions require `execute`, call the available terminal-execution tool instead of deciding that a literal `execute` or PowerShell tool is missing.
 
 ## Evidence
 
@@ -43,7 +44,8 @@
 ## Documentation
 
 - In `通常`, use the templates under `docs/templates/` and preserve their required sections. In `短時間試作`, keep only documents needed to build and verify the primary flow; record skipped documents and reasons in project status.
-- For project outputs created from templates, use the `execute` tool to capture the system clock immediately before work and record that actual start datetime in the document's `実行記録`. Capture it again immediately after work and record the actual end datetime and elapsed duration. Append a row instead of overwriting prior records.
+- For project outputs created from templates, invoke the terminal-execution tool immediately before the first edit or review. On Windows, run `$now = [DateTimeOffset]::Now; [pscustomobject]@{ datetime = $now.ToString('yyyy-MM-dd HH:mm:ss zzz'); epochMilliseconds = $now.ToUnixTimeMilliseconds() } | ConvertTo-Json -Compress`. Record the returned start datetime immediately. After work and validation, invoke it again and record the returned end datetime and the elapsed duration calculated from the epoch values.
+- Never decide in advance that the clock command cannot run. If the primary Windows call actually fails, retry once with `Get-Date -Format "yyyy-MM-dd HH:mm:ss zzz"`. Use `時刻未記録` for the current operation only when the terminal tool is absent or both actual attempts fail; record the attempted commands and errors and report the time-recording requirement as failed.
 - Do not add session-specific execution records to repository templates, README files, instructions, skills, prompts, or the uninitialized `docs/project-status.md` template. Keep only placeholders and examples in template files.
 - Use `YYYY-MM-DD HH:mm:ss ±HH:mm` for execution, update, decision, and confirmation datetimes. Keep date-only values for calendar dates such as deadlines and publication dates. Never infer missing historical times; mark them as `時刻未記録` and the duration as `未記録`.
 - Record each process's start datetime, end datetime, and duration in `docs/project-status.md`. Keep the current process start datetime and update history synchronized with the document records.
