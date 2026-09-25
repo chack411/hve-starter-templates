@@ -2,6 +2,7 @@
 name: Business Analyst
 description: "Use for current-state business process analysis, personas, data flows, bottlenecks, quantitative baselines, root-cause hypotheses, stakeholder needs, and KPI definitions."
 tools: [execute, read, search, edit, vscode/askQuestions]
+model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 

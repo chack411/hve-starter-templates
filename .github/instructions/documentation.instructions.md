@@ -13,8 +13,9 @@ applyTo: "docs/**"
 - Replace or explain specialist terms. Prefer `作るもの` for artifact, `工程` for phase, `完了の目安` for exit criteria, `確認ポイント` for gate, and `つながり` for traceability in user-facing text.
 - Keep standard identifiers and common technical names such as `REQ-NNN`, KPI, API, and ADR, but explain them at first use.
 - Use relative links, stable IDs, ISO dates (`YYYY-MM-DD`), and consistent project terminology. Use `YYYY-MM-DD HH:mm:ss ±HH:mm` for execution, update, decision, and confirmation datetimes.
-- For every project-output creation, update, or review, invoke the terminal tool before the first work and after validation, following `Record Execution Time` in the artifact-workflow skill. Append an `実行記録` row with the returned start datetime, end datetime, elapsed duration, and actor. Do not replace an actual invocation with a judgment that PowerShell or `execute` is unavailable. Do not overwrite prior rows or infer missing historical times.
-- Do not add session-specific execution records to repository templates, README files, or the uninitialized `docs/project-status.md` template. Keep only placeholders and examples there.
+- For every project-output creation, update, or review, append an `実行記録` row using `Record Execution Time` in the artifact-workflow skill. Do not overwrite prior rows or infer missing historical times.
+- Keep templates, README files, and the uninitialized `docs/project-status.md` free of session-specific execution records.
+- Match length to what the reader needs. Cover the substance without filler sections, repeated summaries, or boilerplate.
 - Mark status, owner, inputs, assumptions, open questions, and approval explicitly.
 - When status is `入力待ち（HIL）`, state what to answer, answer examples or choices, recommendation, what starts after the answer, owner, and a copy-ready resume prompt.
 - Show a `次にすること` section with one recommended prompt and no more than two alternatives.

@@ -2,6 +2,7 @@
 name: Delivery Planner
 description: "Use for phased delivery plans, milestones, dependency mapping, estimate ranges, resource assumptions, risk responses, test strategy, release criteria, and vertical-slice implementation task breakdown."
 tools: [execute, read, search, edit, vscode/askQuestions]
+model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 

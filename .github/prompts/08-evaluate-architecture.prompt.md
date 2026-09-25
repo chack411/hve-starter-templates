@@ -7,7 +7,7 @@ agent: Solution Architect
 
 Evaluate architecture options for the approved MVP.
 
-- In `通常`, verify the Product definition process is approved. In `短時間試作`, accept `仮完了` with `最後にまとめて確認` or `完了` with `工程ごとに確認`, compare only materially different choices, and choose the simplest reversible option that supports the primary flow.
+- Confirm the Product definition process is ready as `artifact-workflow` > `Start a Phase` defines. In `短時間試作`, compare only materially different choices, and choose the simplest reversible option that supports the primary flow.
 - Derive measurable decision drivers from requirements and constraints.
 - Compare at least two viable options for material choices. In `短時間試作`, omit comparison for choices that are already fixed by the repository or are inexpensive to reverse.
 - Record the recommendation as `docs/architecture/ADR-001-solution-architecture.md` using the ADR template.

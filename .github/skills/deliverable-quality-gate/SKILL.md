@@ -16,9 +16,9 @@ This is a read-only review procedure. The reviewer reports defects and evidence;
 4. Stable IDs resolve in both directions and orphan checks are complete.
 5. Critical risks have owners, responses, triggers, and verification.
 6. Claims of completion are supported by reviewable evidence.
-7. Current-operation execution records contain terminal-tool-derived start and end datetimes with UTC offsets and a consistent elapsed duration. Treat an unattempted clock call as a procedure failure. Accept `時刻未記録` only with evidence that the terminal tool was absent or that both the primary and fallback commands actually failed; do not apply this finding retroactively to historical records whose actual time cannot be recovered.
+7. Current-operation execution records follow `artifact-workflow` > `Record Execution Time`: start and end datetimes with UTC offsets from actual clock calls and a consistent elapsed duration. An unattempted clock call is a procedure finding. `時刻未記録` is acceptable only with recorded evidence that the terminal tool was absent or both commands failed; historical records whose time cannot be recovered are not findings.
 
-## 4-Hour Prototype Review
+## 短時間試作 Review
 
 When `docs/project-status.md` selects `短時間試作`, review the prototype outcome using its `確認方法`. With `最後にまとめて確認`, review the consolidated outcome instead of failing each intermediate process for intentionally skipped documents. With `工程ごとに確認`, verify that each completed process has a recorded approval and that requested changes were resolved.
 

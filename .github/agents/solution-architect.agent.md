@@ -2,6 +2,7 @@
 name: Solution Architect
 description: "Use for data models, architecture option evaluation, API contracts, quality attributes, technology selection, security, operations, cost trade-offs, and architecture decision records."
 tools: [vscode/askQuestions, execute, read, edit, search, web, 'microsoftdocs/mcp/*']
+model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 

@@ -2,6 +2,7 @@
 name: Market Researcher
 description: "Use for current market trends, competitor comparison, product alternatives, industry adoption patterns, pricing, and evidence-based external research with source URLs and confidence assessment."
 tools: [execute, read, search, web, edit, vscode/askQuestions]
+model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 

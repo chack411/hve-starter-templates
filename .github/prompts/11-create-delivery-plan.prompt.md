@@ -7,11 +7,11 @@ agent: Delivery Planner
 
 Create a delivery plan from approved product and architecture artifacts.
 
-- In `通常`, verify the Architecture process is approved; otherwise stop with missing criteria. In `短時間試作`, accept `仮完了` with `最後にまとめて確認` or `完了` with `工程ごとに確認`, and plan only the primary vertical slice.
+- Confirm the Architecture process is ready as `artifact-workflow` > `Start a Phase` defines; otherwise stop with the missing criteria. In `短時間試作`, plan only the primary vertical slice.
 - Save `docs/delivery/delivery-plan.md` from the delivery plan template.
 - Save `docs/delivery/test-strategy.md` from the test strategy template.
 - Use outcome-based milestones, dependency diagrams, estimate ranges with assumptions, resource gaps, release and rollback criteria, and risk responses.
 - Map all MVP requirements to milestones and planned evidence.
-- In `通常`, update project status, risk register, and traceability matrix to `確認待ち` without recording human confirmation. In `短時間試作`, create one focused test plan. With `最後にまとめて確認`, set this process to `仮完了` and continue. With `工程ごとに確認`, set it to `入力待ち（HIL）` and continue only after explicit approval marks it `完了`.
+- Update the risk register and traceability matrix. In `短時間試作`, create one focused test plan. End the process as `artifact-workflow` > `Complete a Phase` describes for the current mode.
 
 Do not create implementation code or hide schedule uncertainty.
