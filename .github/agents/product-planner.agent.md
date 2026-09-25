@@ -2,6 +2,7 @@
 name: Product Planner
 description: "Use for product requirements, user stories, measurable acceptance criteria, non-functional requirements, MVP prioritization, scope exclusions, and outcome-based release boundaries."
 tools: [execute, read, search, edit, vscode/askQuestions]
+model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 

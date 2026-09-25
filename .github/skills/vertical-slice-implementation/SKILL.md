@@ -8,38 +8,35 @@ argument-hint: "TASK-NNN"
 
 ## Readiness Gate
 
-Before editing, verify that the task:
+Before editing, confirm that the task:
 
-- is approved and dependency-ready; in `短時間試作`, the kickoff-confirmed primary flow provides prototype approval
+- is approved and dependency-ready; in `短時間試作`, the kickoff-confirmed primary flow provides prototype approval, so no separate task approval is needed inside that scope
 - links requirements and any material architecture decisions
 - defines observable acceptance criteria and excluded scope
-- names planned test IDs and a focused validation procedure
+- names planned test IDs and a focused validation command
 - has no blocking open question
 
-Stop and report a planning gap when any item is absent. Do not require a separate task approval in `短時間試作` when the task remains within the kickoff-confirmed scope.
+When an item is absent, stop and report the planning gap.
 
-## Procedure
+## Working Approach
 
-1. Read the task and every linked `REQ`, `ADR`, risk, and test-strategy section.
-2. Search from the most concrete code anchor to the nearest behavior-owning implementation and adjacent test.
-3. State one falsifiable local hypothesis and one inexpensive check that could disconfirm it.
-4. Make the smallest grounded edit for one acceptance behavior.
-5. Immediately run the narrowest executable test, type check, build, or lint action for that behavior.
-6. If it fails within the same slice, repair locally and rerun before widening scope.
-7. Add normal, error, boundary, authorization, concurrency, or recovery coverage required by the acceptance criteria.
-8. Run all task-required validation and record commands and actual results.
-9. Create or update `src/README.md` to match the implemented application. Include purpose and scope, source structure, implemented architecture and data flow, prerequisites, safe configuration, setup, run, build, lint, test, primary-use, and troubleshooting instructions. Record only verified commands, identify unimplemented plans explicitly, and write `該当なし` with a reason for commands the application does not provide.
-10. Check README paths against the source tree and commands against package scripts or build configuration, run every documented command that applies, then update the task evidence and traceability matrix. Record unrun checks and residual risk; do not call them passing.
+Read the task with its linked `REQ`, `ADR`, risk, and test-strategy sections, then the nearest code that owns the behavior and its adjacent tests. Build the slice in small increments and run the focused validation after each one, so a failure points to the change that caused it. Fix failures inside the slice before widening scope. Add the normal, error, boundary, authorization, concurrency, or recovery tests that the acceptance criteria call for.
+
+## Done When
+
+1. All acceptance criteria pass through the task's validation command, run in this session.
+2. `src/README.md` matches the implemented application as `.github/instructions/source-code.instructions.md` specifies, and each command it documents was run.
+3. The task artifact records changed paths, commands with their actual results, unrun checks labeled as unrun, and remaining risks.
+4. `docs/project/traceability-matrix.md` links the task to its `REQ` and `TEST` IDs.
 
 ## Scope Control
 
 - One task per invocation.
 - Preserve existing patterns and public contracts unless the task changes them.
-- Avoid unrelated refactors and dependency upgrades.
-- Never weaken a test or quality gate to obtain a pass.
-- Never add secrets, credentials, or copied production data.
-- Do not complete the first runnable application task while `src/README.md` still contains placeholder instructions.
+- Leave unrelated refactors and dependency upgrades out.
+- Keep tests and quality gates at the strength the task requires.
+- Add no secrets, credentials, or copied production data.
 
 ## Completion Report
 
-Return task and requirement IDs, behavior delivered, changed paths, tests added or updated, commands and results, documentation updates, residual risks, and follow-up task IDs.
+Return task and requirement IDs, behavior delivered, changed paths, tests added or updated, commands and results, documentation updates, remaining risks, and follow-up task IDs.

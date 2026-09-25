@@ -5,15 +5,10 @@ argument-hint: "Phase name or implementation TASK-NNN"
 agent: Quality Reviewer
 ---
 
-Review the requested phase or implementation task against `docs/project-status.md`, required templates, approved upstream artifacts, and traceability.
+Review the requested phase or implementation task against `docs/project-status.md`, required templates, approved upstream artifacts, and traceability, following the `deliverable-quality-gate` skill. When the mode is `短時間試作`, apply its `短時間試作 Review` section for the selected `確認方法`.
 
-When the mode is `短時間試作`, review the primary flow using the selected `確認方法`. With `最後にまとめて確認`, run one consolidated review. With `工程ごとに確認`, include the recorded approvals and changes from each process in the final review. Require executed validation and linked `REQ`, `TASK`, and `TEST` evidence. Treat recorded optional-document omissions as limitations, not automatic failures. Return `FAIL` when the primary flow is not runnable, validation is absent or failing, evidence is contradictory, or a critical safety condition remains.
-
-- Check required sections, evidence quality, assumptions, contradictions, unresolved risks, and stable-ID links.
-- Check that the current operation invoked the terminal-execution tool at both required points, that returned datetimes include UTC offsets, and that elapsed duration is consistent. Report an unattempted call as a procedure failure. Accept current-operation `時刻未記録` only when the terminal tool was absent or both primary and fallback attempts have recorded errors; leave unrecoverable historical records unchanged.
-- For implementation, require acceptance evidence and actual validation results.
-- List findings first in severity order with artifact paths and IDs.
+- List every finding first, in severity order, with artifact paths and IDs.
 - Summarize requirement and test coverage.
 - Return exactly one verdict: `PASS`, `CONDITIONAL`, or `FAIL`, with required actions.
 
-Do not edit files, implement corrections, or grant user approval.
+This review is read-only: report corrections rather than making them, and leave approval to the user.

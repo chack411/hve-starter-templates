@@ -14,4 +14,4 @@ Define and prioritize the product outcome from approved research, current-state 
 5. Define MVP inclusions, later work, explicit exclusions, and assumptions to validate.
 6. Update the decision log and traceability matrix.
 
-Do not choose implementation technology. In `通常`, stop at `確認待ち`; human confirmation is required before architecture. In `短時間試作`, keep no more than three requirements for one primary flow and record exclusions and assumptions. With `最後にまとめて確認`, set this process to `仮完了` and continue to architecture. With `工程ごとに確認`, set it to `入力待ち（HIL）` and continue only after explicit approval marks it `完了`.
+Do not choose implementation technology. In `短時間試作`, keep no more than three requirements for one primary flow and record exclusions and assumptions. End the process as `artifact-workflow` > `Complete a Phase` describes for the current mode.
