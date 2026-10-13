@@ -23,6 +23,21 @@ Use plain Japanese in user-facing status and guidance. Prefer 工程, 作るも�
 7. Implementation: one approved task at a time
 8. Quality review: independent coverage and evidence verdict
 
+Use these owners, templates, and output paths in every handoff. Templates are in `docs/templates/`; outputs are under `docs/`.
+
+| Phase | Owner in `通常` | Template | Output path |
+| --- | --- | --- | --- |
+| Initiation | `Hyper Velocity Engineering Lead` (`hve-kickoff`) | `project-brief.md` and the registers | `project/project-brief.md` |
+| Research | `Market Researcher` | `research-report.md` | `research/01-market-landscape.md`, `research/02-alternatives.md`, `research/03-industry-patterns.md`; sources in `project/source-register.md` |
+| Analysis | `Business Analyst` | `current-state-analysis.md`, `kpi-catalog.md` | `research/04-current-state.md`, `requirements/kpi-catalog.md` |
+| Product definition | `Product Planner` | `product-requirements.md`, `mvp-prioritization.md` | `requirements/product-requirements.md`, `requirements/mvp-prioritization.md` |
+| Architecture | `Solution Architect` | `data-design.md`, `architecture-decision.md`, `api-design.md`, `technology-selection.md` | `architecture/data-design.md`, `architecture/ADR-001-solution-architecture.md`, `architecture/api-design.md`, `architecture/technology-selection.md` |
+| Delivery planning | `Delivery Planner` | `delivery-plan.md`, `test-strategy.md`, `implementation-task.md` | `delivery/delivery-plan.md`, `delivery/test-strategy.md`, `delivery/tasks/TASK-NNN-short-title.md` |
+| Implementation | `Implementation Engineer` (`vertical-slice-implementation`) | The approved `TASK` file | `src/`, `tests/`, and the task's evidence section |
+| Quality review | `Quality Reviewer` (`deliverable-quality-gate`) | None; read-only | Findings and one verdict returned to the HVE Lead |
+
+Every phase also updates `project/traceability-matrix.md` and, when affected, the decision log and risk register. In `短時間試作`, keep only the outputs the primary flow needs, as the next section describes.
+
 ## Workflow Modes
 
 Use `通常` unless `docs/project-status.md` says `短時間試作`. The kickoff procedure for both modes is in the `hve-kickoff` skill.
@@ -42,7 +57,7 @@ Aim to finish the full flow within the confirmed time limit:
 | 5 | Implementation | Working primary flow with automated checks |
 | 6 | Final review | Executed validation, known limitations, and next decision |
 
-This section is the single definition of `短時間試作`. Agents, prompts, and other skills refer to it instead of restating it.
+This section is the single definition of `短時間試作`. Agents and other skills refer to it instead of restating it.
 
 For each intermediate process, run a lightweight self-check and record assumptions and skipped work. With `最後にまとめて確認`, set the process to `仮完了` and continue immediately without human confirmation. Run one consolidated independent review at the end. With `工程ごとに確認`, set the process to `入力待ち（HIL）`, show the outputs, check result, omissions, and risks, and ask the user to approve or request changes. Mark an approved process row `完了`, clear HIL, and set the overall status to the next process's `作業中`; return a process with requested changes to `作業中` and ask again after repair. Regardless of confirmation method, set the final review to `確認待ち`.
 
@@ -60,7 +75,7 @@ Always set `入力待ち（HIL）` and ask before production release, real confi
 
 ## Record Execution Time
 
-This section is the single definition of execution-time recording. Apply it to every project-output creation, update, or review. The records are used to compare effort across projects and to pace `短時間試作`, so every value must come from an actual clock call. Keep session-specific rows out of repository templates, README files, instructions, skills, prompts, and the uninitialized `docs/project-status.md` template.
+This section is the single definition of execution-time recording. Apply it to every project-output creation, update, or review. The records are used to compare effort across projects and to pace `短時間試作`, so every value must come from an actual clock call. Keep session-specific rows out of repository templates, README files, instructions, skills, and the uninitialized `docs/project-status.md` template.
 
 1. `execute` is the frontmatter tool set that exposes a terminal-execution tool. Call whichever terminal tool the runtime provides; its display name may differ. Whether the command can run is known only from an actual call result, so always make the call before concluding anything about it.
 2. Before the first edit or review action, invoke the terminal tool. On Windows, run this exact PowerShell command:

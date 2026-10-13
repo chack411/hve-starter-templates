@@ -22,7 +22,6 @@ These rules apply to every chat in this repository. Detailed procedures live in 
 ## Agent Tools
 
 - Each custom agent's `tools` field is the single source of truth for that role's capabilities. Keep it at least privilege.
-- Omit `tools` from prompt files so they inherit the agent's tools; a prompt-level `tools` field replaces the agent list rather than extending it.
 - `execute` is the tool set that exposes terminal execution. When a procedure needs `execute`, call the available terminal tool.
 
 ## Evidence
@@ -47,7 +46,7 @@ These rules apply to every chat in this repository. Detailed procedures live in 
 
 - In `通常`, start from `docs/templates/` and keep required sections. In `短時間試作`, keep only documents needed to build and verify the primary flow, and record skipped documents in `docs/project-status.md`.
 - Record the start datetime, end datetime, and elapsed time of every project-output creation, update, or review from actual clock calls before the first edit and after validation. On Windows, run `$now = [DateTimeOffset]::Now; [pscustomobject]@{ datetime = $now.ToString('yyyy-MM-dd HH:mm:ss zzz'); epochMilliseconds = $now.ToUnixTimeMilliseconds() } | ConvertTo-Json -Compress`; always make the call, because whether it works is known only from its result. The fallback and failure handling are in `artifact-workflow` > `Record Execution Time`. Time is measured, not estimated, because the records are used to compare effort and to pace `短時間試作`.
-- Keep templates, README files, instructions, skills, prompts, and the uninitialized `docs/project-status.md` free of session-specific records.
+- Keep templates, README files, instructions, skills, and the uninitialized `docs/project-status.md` free of session-specific records.
 - Match document length to what the reader needs. Do not pad with filler sections, repeated summaries, or boilerplate.
 - Write user-facing text in plain Japanese with short sentences. Prefer `工程`, `作るもの`, `完了の目安`, `確認待ち`, and `入力待ち（HIL）`, and explain unavoidable abbreviations at first use.
 - Use Mermaid for diagrams and relative links. Update affected indexes and decision records.

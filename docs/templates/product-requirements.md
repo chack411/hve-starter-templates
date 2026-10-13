@@ -66,7 +66,7 @@ Repeat the definition block for each requirement.
 
 | おすすめ | 入力する内容 | 回答後に始まる作業 | プロンプト候補 |
 | --- | --- | --- | --- |
-| MVPの範囲を確認する | `[含める要件、後回しにする要件]` | MVPを確定する | `/06-prioritize-mvp` |
+| MVPの範囲を確認する | `[含める要件、後回しにする要件]` | MVPを確定する | 「MVPを確定して」 |
 
 ## 人による確認
 
