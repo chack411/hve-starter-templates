@@ -4,7 +4,7 @@ description: "Use when starting or continuing the Hyper Velocity Engineering wor
 argument-hint: "作りたいもの・課題・利用者を自然文で書くか、「続きから進めて」と入力"
 tools: [vscode/askQuestions, execute, read, agent, edit, search, todo]
 agents: ['Market Researcher', 'Business Analyst', 'Product Planner', 'Solution Architect', 'Delivery Planner', 'Implementation Engineer', 'Quality Reviewer']
-model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5 (copilot)']
+model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5.5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: true
 ---
 

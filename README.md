@@ -17,7 +17,7 @@ GitHub Copilot と Visual Studio Code を使って、調査からアプリの実
 5. 人の判断が必要なときは、VS Codeに選択肢が表示されます。回答後は、続けられる作業をエージェントが再開します。
 6. 各工程で作った文書を確認し、[プロジェクト進捗](./docs/project-status.md)の確認欄を更新してから次へ進みます。
 
-各エージェントは Claude Opus 5.5 を優先して使います。使えないときは Claude Opus 5、Claude Sonnet 5 の順に切り替わります。モデル選択画面で推論の深さ（Thinking Effort）を選べる場合は、まず `Medium` で試し、結果が足りないときだけ上げてください。
+各エージェントは Claude Opus 5.5 を優先して使います。使えないときは Claude Opus 5、Claude Sonnet 5.5、Claude Sonnet 5 の順に切り替わります。モデル選択画面で推論の深さ（Thinking Effort）を選べる場合は、まず `Medium` で試し、結果が足りないときだけ上げてください。
 
 ## 短時間で試作する
 
