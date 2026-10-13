@@ -6,7 +6,7 @@ argument-hint: "課題、利用者、目的。わかれば進め方（通常/短
 
 # HVE Kickoff
 
-This is the single kickoff procedure. `/hve-kickoff`, a plain request to the `Hyper Velocity Engineering Lead` agent, and `/00-start-project` all run it.
+This is the single kickoff procedure. `/hve-kickoff` and a plain request to the `Hyper Velocity Engineering Lead` agent both run it.
 
 Run it inside the `Hyper Velocity Engineering Lead` agent, which owns delegation and keeps `src/` and `tests/` changes with the `Implementation Engineer`. If the current chat uses a different agent, tell the user in one sentence to select `Hyper Velocity Engineering Lead` and send the same request again, then stop.
 

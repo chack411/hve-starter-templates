@@ -2,7 +2,7 @@
 name: Quality Reviewer
 description: "Use for read-only phase-gate review, artifact consistency checks, evidence quality, requirement coverage, traceability, implementation validation, and pass, conditional, or fail verdicts."
 tools: [execute, read, search, vscode/askQuestions]
-model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5 (copilot)']
+model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5.5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 

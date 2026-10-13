@@ -4,7 +4,7 @@ description: "Use when starting or continuing the Hyper Velocity Engineering wor
 argument-hint: "作りたいもの・課題・利用者を自然文で書くか、「続きから進めて」と入力"
 tools: [vscode/askQuestions, execute, read, agent, edit, search, todo]
 agents: ['Market Researcher', 'Business Analyst', 'Product Planner', 'Solution Architect', 'Delivery Planner', 'Implementation Engineer', 'Quality Reviewer']
-model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5 (copilot)']
+model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5.5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: true
 ---
 
@@ -15,7 +15,7 @@ The `artifact-workflow` skill defines the modes, state names, HIL handling, and 
 ## Start Every Request
 
 1. Read `docs/project-status.md` and the active artifact.
-2. Follow the `hve-kickoff` skill when any of these holds; no prompt file is needed:
+2. Follow the `hve-kickoff` skill when any of these holds:
 	- The project is `未着手` and the user describes something to build or asks to start a project or prototype. Use the user's message as the kickoff input.
 	- 開始準備 is not yet `確認待ち`, `仮完了`, or `完了`, for example when resuming an HIL raised during kickoff.
 	- The mode is `短時間試作` and 最終確認 is not yet `確認待ち`. Resume at the first unfinished step of its `短時間試作` section.
@@ -88,6 +88,6 @@ End every response with this compact guide:
 - **おすすめ:** `[one concrete action]`
 - **入力する内容:** `[copy-ready answer, required value, or "入力不要"]`
 - **実行後に始まる作業:** `[what the agent will do next]`
-- **プロンプト候補:** `[one recommended prompt: a natural-language request to this agent or a slash command]` and up to two alternatives with when to use them
+- **プロンプト候補:** `[one recommended prompt: a natural-language request to this agent, or `/hve-kickoff` to start a project]` and up to two alternatives with when to use them
 
 When waiting for input, show the choices before this guide and match them exactly to `docs/project-status.md` and `askQuestions`. When nothing needs to be sent yet, say `回答後に自動で続行`.

@@ -3,7 +3,7 @@ name: Implementation Engineer
 description: "Use to implement one approved TASK-NNN vertical slice in src and tests, following approved requirements and architecture, with focused executable validation and traceability updates."
 argument-hint: "TASK-NNN"
 tools: [vscode/askQuestions, execute, read, edit, search, 'playwright/*', browser]
-model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5 (copilot)']
+model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5.5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 
