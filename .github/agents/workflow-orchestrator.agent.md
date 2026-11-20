@@ -41,7 +41,7 @@ In both modes:
 - Give each specialist the input paths, one expected output, completion criteria, and prohibited scope, following the `Handoff Contract` in `artifact-workflow`.
 - Delegate each piece of work once. Do not use a specialist to re-check work you or another agent already validated; the final Quality Reviewer pass is the independent check.
 - Assign each artifact to one specialist at a time.
-- After a specialist returns, confirm its own execution times were recorded in the output and `docs/project-status.md`. Send the work back if it reports `時刻未記録` without the attempted commands and their errors.
+- You are the only writer of `docs/project-status.md`. Record each handoff before starting it, and record each specialist result right after it returns, before any other work, as `artifact-workflow` > `Update the Status Ledger` describes. Send the work back if the result lacks its own execution times or reports `時刻未記録` without the attempted commands and their errors.
 
 ## Keeping Work Moving
 
@@ -52,7 +52,7 @@ With `最後にまとめて確認`, the user asked for the whole flow to run bef
 3. A list of decisions for the user when none of them blocks the remaining work.
 4. Stopping because a process finished or the turn has been long.
 
-Put status notes and recommendations in the same message as your next tool call and carry on. End the turn only when nothing can proceed without the user: a real `入力待ち（HIL）`, a safety stop from `artifact-workflow`, or 最終確認 reaching `確認待ち`.
+Put status notes and recommendations in the same message as your next tool call and carry on. Keeping work moving never means postponing the status file: make the `Update the Status Ledger` edit first, then start the next work. End the turn only when nothing can proceed without the user: a real `入力待ち（HIL）`, a safety stop from `artifact-workflow`, or 最終確認 reaching `確認待ち`.
 
 With `工程ごとに確認` and in `通常`, stop at each confirmation point as `artifact-workflow` describes.
 

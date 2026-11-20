@@ -59,7 +59,7 @@ Aim to finish the full flow within the confirmed time limit:
 
 This section is the single definition of `短時間試作`. Agents and other skills refer to it instead of restating it.
 
-For each intermediate process, run a lightweight self-check and record assumptions and skipped work. With `最後にまとめて確認`, set the process to `仮完了` and continue immediately without human confirmation. Run one consolidated independent review at the end. With `工程ごとに確認`, set the process to `入力待ち（HIL）`, show the outputs, check result, omissions, and risks, and ask the user to approve or request changes. Mark an approved process row `完了`, clear HIL, and set the overall status to the next process's `作業中`; return a process with requested changes to `作業中` and ask again after repair. Regardless of confirmation method, set the final review to `確認待ち`.
+For each intermediate process, run a lightweight self-check and record assumptions and skipped work. With `最後にまとめて確認`, set the process to `仮完了` and continue immediately without human confirmation. Continuing without confirmation, including running specialists in parallel, never skips the sync points in `Update the Status Ledger`. Run one consolidated independent review at the end. With `工程ごとに確認`, set the process to `入力待ち（HIL）`, show the outputs, check result, omissions, and risks, and ask the user to approve or request changes. Mark an approved process row `完了`, clear HIL, and set the overall status to the next process's `作業中`; return a process with requested changes to `作業中` and ask again after repair. Regardless of confirmation method, set the final review to `確認待ち`.
 
 Keep only the documents needed to make and verify the prototype. Sections may be compact, and non-applicable documents may be skipped when the reason is recorded in `docs/project-status.md`. Keep stable IDs only for the primary flow: at least one `REQ`, `TASK`, and `TEST`, plus an `ADR` when a material design choice exists.
 
@@ -85,13 +85,27 @@ This section is the single definition of execution-time recording. Apply it to e
 	```
 
 	On Linux or macOS, run a platform-equivalent command that returns both local datetime with UTC offset and Unix epoch milliseconds. The conversation date, file timestamps, and estimates are not acceptable substitutes.
-3. Accept the result when the call succeeded, `datetime` matches `YYYY-MM-DD HH:mm:ss ±HH:mm`, and `epochMilliseconds` is numeric. Append the start row to the output document and `docs/project-status.md`, and keep the epoch value for the elapsed-time calculation.
+3. Accept the result when the call succeeded, `datetime` matches `YYYY-MM-DD HH:mm:ss ±HH:mm`, and `epochMilliseconds` is numeric. Append the start row to the output document, and keep the epoch value for the elapsed-time calculation. The HVE Lead writes the matching rows in `docs/project-status.md` as `Update the Status Ledger` describes.
 4. If the Windows command returns an error, retry once with `Get-Date -Format "yyyy-MM-dd HH:mm:ss zzz"`.
 5. After the substantive work and its validation, but before the final status or execution-record edit, invoke the same clock command again. Record its `datetime` as the end datetime and calculate elapsed duration from the captured epoch values. If the fallback command was required, parse the two returned datetimes with their offsets and subtract them.
 6. Append records. Never replace earlier execution rows. For a phase, also update the matching `工程一覧` row. Record the phase start when it becomes `作業中`, and its end and duration when it becomes `仮完了`, `入力待ち（HIL）`, `確認待ち`, or `完了`.
 7. Leave a running process without an end datetime. Before entering HIL, capture the current end time; after resumption, capture a new start time. Do not count waiting time unless the record explicitly says it includes waiting time.
 8. Use `時刻未記録` for the current operation only when the runtime has no terminal tool, or when the primary call and its fallback both actually returned errors. Uncertainty about command support is not a reason; make the calls. Record the attempted commands and errors, set duration to `未記録`, and report that time recording failed. Keep `時刻未記録` for historical entries whose actual time cannot be recovered.
-9. Specialists record their own times with their own calls; a parent-captured time does not substitute. They return the captured values, elapsed duration, and any command errors in their result.
+9. Specialists record their own times with their own calls; a parent-captured time does not substitute. They write them only in their own output document and return the captured values, elapsed duration, and any command errors in their result. They do not edit `docs/project-status.md`.
+
+## Update the Status Ledger
+
+This section is the single definition of when and by whom `docs/project-status.md` is updated. It exists so the file matches the work actually running, even when specialists run in parallel and the user is not watching.
+
+1. Single writer: only the `Hyper Velocity Engineering Lead` edits `docs/project-status.md`. Specialists return their status, times, and results; parallel writers would overwrite each other and push updates to the end.
+2. Sync points: update the file at each point below, before the tool call that starts the next piece of work.
+	- Before a handoff: add a `実行中の作業` row with the work, owner, output, start datetime, and `実行中`. Set `現在の状況` and the `工程一覧` row when the process changes.
+	- Right after a specialist returns, before any other work: set its row to `終了` or `差し戻し` with the end datetime, append the `実行記録` row with the specialist's captured times, and refresh `経過時間`. When several results arrive together, record each one before acting on any of them.
+	- Before switching processes: close the current process row (`仮完了`, `入力待ち（HIL）`, `確認待ち`, or `完了`), then set the next one to `作業中`.
+	- For documents the HVE Lead writes itself: update at its start and at its end in the same way.
+3. Done rule: a piece of work is not done, and work that depends on it does not start, until its result is reflected in `docs/project-status.md`.
+4. Parallel work: run specialists in parallel only when their outputs do not overlap. Each one gets its own `実行中の作業` row; the next process starts only after every row of the current process is `終了`.
+5. Before ending a turn, check that every running or finished piece of work is reflected and that `最終更新日時` is current.
 
 ## Start a Phase
 
@@ -145,4 +159,4 @@ When new evidence invalidates confirmed work, record the triggering evidence, af
 
 ## Handoff Contract
 
-A handoff states current phase, approved inputs, exact output path, completion criteria, stable IDs affected, constraints, open questions, and prohibited scope. For any creation, update, or review of a project output, require the specialist to capture and return the actual start datetime, end datetime, and elapsed duration according to `Record Execution Time`. Do not assign concurrent edits to the same artifact.
+A handoff states current phase, approved inputs, exact output path, completion criteria, stable IDs affected, constraints, open questions, and prohibited scope. For any creation, update, or review of a project output, require the specialist to capture and return the actual start datetime, end datetime, and elapsed duration according to `Record Execution Time`. Tell the specialist not to edit `docs/project-status.md`; the HVE Lead records the handoff and its result there as `Update the Status Ledger` describes. Do not assign concurrent edits to the same artifact.

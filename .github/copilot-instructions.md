@@ -4,7 +4,7 @@ These rules apply to every chat in this repository. Detailed procedures live in 
 
 | Procedure | Owner |
 | --- | --- |
-| Workflow modes, phase states, HIL, execution-time recording | `.github/skills/artifact-workflow/SKILL.md` |
+| Workflow modes, phase states, HIL, execution-time recording, status-file updates | `.github/skills/artifact-workflow/SKILL.md` |
 | Project kickoff | `.github/skills/hve-kickoff/SKILL.md` |
 | `src/README.md` content | `.github/instructions/source-code.instructions.md` |
 | Review verdicts | `.github/skills/deliverable-quality-gate/SKILL.md` |
@@ -12,6 +12,7 @@ These rules apply to every chat in this repository. Detailed procedures live in 
 ## Workflow
 
 - Read `docs/project-status.md` before creating or changing project artifacts. It is the only ledger for phase status and approval.
+- Only the `Hyper Velocity Engineering Lead` edits `docs/project-status.md`, before each handoff and right after each result, so the file stays in step with parallel work. Specialists return their status and times instead. The procedure is `artifact-workflow` > `Update the Status Ledger`.
 - Reuse approved upstream artifacts. Do not silently replace approved decisions.
 - Use `通常` unless `docs/project-status.md` selects `短時間試作`. In `短時間試作`, the kickoff records `確認方法` as `工程ごとに確認` or `最後にまとめて確認`, and `artifact-workflow` defines what each one does.
 - In `通常`, a process is complete only after its completion guide is met and a person's confirmation is recorded.
