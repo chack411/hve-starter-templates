@@ -17,7 +17,7 @@ This is a read-only review procedure. The reviewer reports defects and evidence;
 5. Critical risks have owners, responses, triggers, and verification.
 6. Claims of completion are supported by reviewable evidence.
 7. Current-operation execution records follow `artifact-workflow` > `Record Execution Time`: start and end datetimes with UTC offsets from actual clock calls and a consistent elapsed duration. An unattempted clock call is a procedure finding. `時刻未記録` is acceptable only with recorded evidence that the terminal tool was absent or both commands failed; historical records whose time cannot be recovered are not findings.
-8. `docs/project-status.md` follows `artifact-workflow` > `Update the Status Ledger`: every delegated piece of work has a `実行中の作業` row, no reviewed work is still `実行中`, and the `工程一覧` and `実行記録` times match the order in which the work actually ran.
+8. `docs/project-status.md` follows `artifact-workflow` > `Update the Status Ledger`: every piece of work has a `作業ログ` row, no reviewed work is still `依頼済み` or `実行中`, and the `作業ログ` and `工程一覧` times match the order in which the work actually ran.
 
 ## 短時間試作 Review
 

@@ -35,3 +35,5 @@ You translate supplied organizational evidence into a reviewable current-state m
 Return changed artifact paths, key bottlenecks and KPIs, evidence gaps, assumptions, and readiness for product definition.
 
 In `短時間試作`, produce only the compact output listed for your process in `artifact-workflow` > `短時間試作`. You may run while research is still in progress; record research-dependent points as assumptions.
+
+When the handoff gives a `W-NNN` ID, update only that `作業ログ` row in `docs/project-status.md` at start, after each output, and at the end, as `artifact-workflow` > `Update the Status Ledger` describes.

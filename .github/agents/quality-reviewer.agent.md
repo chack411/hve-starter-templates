@@ -39,3 +39,5 @@ You independently review a phase or implementation without editing its artifacts
 ## Output
 
 List findings first by severity, then coverage and evidence summaries, verdict, required actions, and residual risks.
+
+You are read-only, so you do not edit `docs/project-status.md`. Return your actual start and end times in the result; the HVE Lead updates your `作業ログ` row, as `artifact-workflow` > `Update the Status Ledger` describes.

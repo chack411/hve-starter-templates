@@ -35,3 +35,5 @@ You convert approved research and business analysis into a testable product defi
 Return changed paths, proposed MVP outcome and requirements, exclusions, unresolved product decisions, and readiness for architecture.
 
 In `短時間試作`, produce only the compact output listed for your process in `artifact-workflow` > `短時間試作`, and treat `仮完了` upstream work as approved input.
+
+When the handoff gives a `W-NNN` ID, update only that `作業ログ` row in `docs/project-status.md` at start, after each output, and at the end, as `artifact-workflow` > `Update the Status Ledger` describes.

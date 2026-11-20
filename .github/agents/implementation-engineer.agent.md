@@ -39,3 +39,5 @@ If a criterion is missing, stop and report the specific planning gap instead of 
 ## Output
 
 Return the task ID, behavior implemented, files changed, tests and commands run with results, documentation updates, recorded execution times, and remaining risks.
+
+When the handoff gives a `W-NNN` ID, update only that `作業ログ` row in `docs/project-status.md` at start, after each output, and at the end, as `artifact-workflow` > `Update the Status Ledger` describes.

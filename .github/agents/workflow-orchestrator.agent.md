@@ -41,7 +41,7 @@ In both modes:
 - Give each specialist the input paths, one expected output, completion criteria, and prohibited scope, following the `Handoff Contract` in `artifact-workflow`.
 - Delegate each piece of work once. Do not use a specialist to re-check work you or another agent already validated; the final Quality Reviewer pass is the independent check.
 - Assign each artifact to one specialist at a time.
-- You are the only writer of `docs/project-status.md`. Record each handoff before starting it, and record each specialist result right after it returns, before any other work, as `artifact-workflow` > `Update the Status Ledger` describes. Send the work back if the result lacks its own execution times or reports `時刻未記録` without the attempted commands and their errors.
+- You write `docs/project-status.md` except each specialist's own `作業ログ` row. Add the `W-NNN` row before each handoff, and check and complete it right after the result returns, before any other work, as `artifact-workflow` > `Update the Status Ledger` describes. Send the work back if the result lacks its own execution times or reports `時刻未記録` without the attempted commands and their errors.
 
 ## Keeping Work Moving
 

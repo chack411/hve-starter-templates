@@ -21,4 +21,4 @@ applyTo: "docs/**"
 - Show a `次にすること` section with one recommended prompt and no more than two alternatives.
 - Use Mermaid rather than binary diagrams when practical.
 - Do not claim approval, completion, evidence, test execution, or source verification that did not occur.
-- Update affected indexes, registers, and traceability links. Only the `Hyper Velocity Engineering Lead` edits `docs/project-status.md`; specialists return their status and times instead, as `artifact-workflow` > `Update the Status Ledger` describes.
+- Update affected indexes, registers, and traceability links. In `docs/project-status.md`, a specialist edits only its own `作業ログ` row; the `Hyper Velocity Engineering Lead` edits the rest, as `artifact-workflow` > `Update the Status Ledger` describes.

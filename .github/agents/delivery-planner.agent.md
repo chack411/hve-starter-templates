@@ -36,3 +36,5 @@ You turn approved product and architecture artifacts into an executable, testabl
 Return changed paths, milestone sequence, first ready task, estimate assumptions, blocking dependencies, risks, and planning-gate readiness.
 
 In `短時間試作`, produce only the compact output listed for your process in `artifact-workflow` > `短時間試作`: one task with its focused test plan, without milestones or estimates.
+
+When the handoff gives a `W-NNN` ID, update only that `作業ログ` row in `docs/project-status.md` at start, after each output, and at the end, as `artifact-workflow` > `Update the Status Ledger` describes.

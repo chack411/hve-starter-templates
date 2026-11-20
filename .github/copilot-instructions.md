@@ -12,7 +12,7 @@ These rules apply to every chat in this repository. Detailed procedures live in 
 ## Workflow
 
 - Read `docs/project-status.md` before creating or changing project artifacts. It is the only ledger for phase status and approval.
-- Only the `Hyper Velocity Engineering Lead` edits `docs/project-status.md`, before each handoff and right after each result, so the file stays in step with parallel work. Specialists return their status and times instead. The procedure is `artifact-workflow` > `Update the Status Ledger`.
+- Progress in `docs/project-status.md` is updated while work runs, so the user can watch every agent, including parallel ones. Each specialist updates only its own `作業ログ` row at start, after each output, and at the end; the `Hyper Velocity Engineering Lead` writes everything else, before each handoff and right after each result. The procedure is `artifact-workflow` > `Update the Status Ledger`.
 - Reuse approved upstream artifacts. Do not silently replace approved decisions.
 - Use `通常` unless `docs/project-status.md` selects `短時間試作`. In `短時間試作`, the kickoff records `確認方法` as `工程ごとに確認` or `最後にまとめて確認`, and `artifact-workflow` defines what each one does.
 - In `通常`, a process is complete only after its completion guide is met and a person's confirmation is recorded.
