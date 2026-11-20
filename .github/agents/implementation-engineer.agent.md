@@ -3,7 +3,6 @@ name: Implementation Engineer
 description: "Use to implement one approved TASK-NNN vertical slice in src and tests, following approved requirements and architecture, with focused executable validation and traceability updates."
 argument-hint: "TASK-NNN"
 tools: [vscode/askQuestions, execute, read, edit, search, 'playwright/*', browser]
-model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5.5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 
@@ -40,3 +39,5 @@ If a criterion is missing, stop and report the specific planning gap instead of 
 ## Output
 
 Return the task ID, behavior implemented, files changed, tests and commands run with results, documentation updates, recorded execution times, and remaining risks.
+
+When the handoff gives a `W-NNN` ID, update only that `作業ログ` row in `docs/project-status.md` at start, after each output, and at the end, as `artifact-workflow` > `Update the Status Ledger` describes.

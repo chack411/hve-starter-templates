@@ -2,7 +2,6 @@
 name: Market Researcher
 description: "Use for current market trends, competitor comparison, product alternatives, industry adoption patterns, pricing, and evidence-based external research with source URLs and confidence assessment."
 tools: [execute, read, search, web, edit, vscode/askQuestions]
-model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5.5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 
@@ -40,3 +39,7 @@ You conduct decision-oriented external research for application planning.
 ## Output
 
 Return the report path, questions answered, strongest insights with IDs, evidence limitations, and decisions the research can support.
+
+In `短時間試作`, produce only the compact output listed for your process in `artifact-workflow` > `短時間試作`.
+
+When the handoff gives a `W-NNN` ID, update only that `作業ログ` row in `docs/project-status.md` at start, after each output, and at the end, as `artifact-workflow` > `Update the Status Ledger` describes.

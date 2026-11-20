@@ -2,7 +2,6 @@
 name: Quality Reviewer
 description: "Use for read-only phase-gate review, artifact consistency checks, evidence quality, requirement coverage, traceability, implementation validation, and pass, conditional, or fail verdicts."
 tools: [execute, read, search, vscode/askQuestions]
-model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5.5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 
@@ -40,3 +39,5 @@ You independently review a phase or implementation without editing its artifacts
 ## Output
 
 List findings first by severity, then coverage and evidence summaries, verdict, required actions, and residual risks.
+
+You are read-only, so you do not edit `docs/project-status.md`. Return your actual start and end times in the result; the HVE Lead updates your `作業ログ` row, as `artifact-workflow` > `Update the Status Ledger` describes.

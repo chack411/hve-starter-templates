@@ -59,13 +59,25 @@ Aim to finish the full flow within the confirmed time limit:
 
 This section is the single definition of `短時間試作`. Agents and other skills refer to it instead of restating it.
 
-For each intermediate process, run a lightweight self-check and record assumptions and skipped work. With `最後にまとめて確認`, set the process to `仮完了` and continue immediately without human confirmation. Run one consolidated independent review at the end. With `工程ごとに確認`, set the process to `入力待ち（HIL）`, show the outputs, check result, omissions, and risks, and ask the user to approve or request changes. Mark an approved process row `完了`, clear HIL, and set the overall status to the next process's `作業中`; return a process with requested changes to `作業中` and ask again after repair. Regardless of confirmation method, set the final review to `確認待ち`.
+For each intermediate process, run a lightweight self-check and record assumptions and skipped work. With `最後にまとめて確認`, set the process to `仮完了` and continue immediately without human confirmation. Continuing without confirmation, including running specialists in parallel, never skips the sync points in `Update the Status Ledger`. Run one consolidated independent review at the end. With `工程ごとに確認`, set the process to `入力待ち（HIL）`, show the outputs, check result, omissions, and risks, and ask the user to approve or request changes. Mark an approved process row `完了`, clear HIL, and set the overall status to the next process's `作業中`; return a process with requested changes to `作業中` and ask again after repair. Regardless of confirmation method, set the final review to `確認待ち`.
 
 Keep only the documents needed to make and verify the prototype. Sections may be compact, and non-applicable documents may be skipped when the reason is recorded in `docs/project-status.md`. Keep stable IDs only for the primary flow: at least one `REQ`, `TASK`, and `TEST`, plus an `ADR` when a material design choice exists.
 
 Scope limits: at most two research questions that can change the prototype decision, one primary flow, and no more than three `REQ` IDs. Choose the simplest reversible design and add no optional infrastructure, integrations, or abstractions.
 
-Delegation: hand off only focused research (`Market Researcher`, one request covering all questions), implementation (`Implementation Engineer`), and the final review (`Quality Reviewer`). The HVE Lead writes the compact current-state, requirement, design, and implementation-preparation documents itself, because a separate agent for each short document costs more time than it saves.
+Delegation: hand off every process after Start to the same owner as in `通常`, so each output keeps its specialist's judgment. Each specialist produces only the compact output below, inside the scope limits above:
+
+| Process | Owner | Compact output |
+| --- | --- | --- |
+| Research | `Market Researcher` | One request covering all questions; one report at `research/01-market-landscape.md` and its sources in `project/source-register.md` |
+| Current state | `Business Analyst` | A short `research/04-current-state.md`; only the KPIs the success check needs, which may sit in that file instead of `requirements/kpi-catalog.md` |
+| Product definition | `Product Planner` | `requirements/product-requirements.md` with up to three `REQ` IDs, acceptance criteria, and the MVP boundary in the same file |
+| Architecture | `Solution Architect` | The simplest reversible design in `architecture/ADR-001-solution-architecture.md`, with only the data and API detail the primary flow needs |
+| Implementation preparation | `Delivery Planner` | One `delivery/tasks/TASK-NNN-short-title.md` with linked `REQ` and `TEST` IDs, acceptance criteria, its focused test plan, and a validation command |
+| Implementation | `Implementation Engineer` | The working primary flow and its automated checks |
+| Final review | `Quality Reviewer` | One consolidated verdict |
+
+Run research and current state in parallel, because their outputs do not overlap; the business analyst records research-dependent points as assumptions. Run the remaining processes in order. Specialists accept an upstream process that is `仮完了` as their entry criterion and run their own lightweight self-check; the `Quality Reviewer` runs only the final review. If the time budget can no longer fit a handoff, the HVE Lead may write that remaining compact document itself and records the reason in `docs/project-status.md`; implementation and the final review are always delegated.
 
 Time budget: each time the clock command runs, compute the elapsed time since the kickoff start and write `経過 X分 / 制限 Y分` in the `経過時間` row of the `現在の状況` table in `docs/project-status.md`. Use it to pace the work: a correct result reached earlier is better, and when time runs short, drop optional scope rather than the primary-flow tests.
 
@@ -85,13 +97,32 @@ This section is the single definition of execution-time recording. Apply it to e
 	```
 
 	On Linux or macOS, run a platform-equivalent command that returns both local datetime with UTC offset and Unix epoch milliseconds. The conversation date, file timestamps, and estimates are not acceptable substitutes.
-3. Accept the result when the call succeeded, `datetime` matches `YYYY-MM-DD HH:mm:ss ±HH:mm`, and `epochMilliseconds` is numeric. Append the start row to the output document and `docs/project-status.md`, and keep the epoch value for the elapsed-time calculation.
+3. Accept the result when the call succeeded, `datetime` matches `YYYY-MM-DD HH:mm:ss ±HH:mm`, and `epochMilliseconds` is numeric. Append the start row to the output document, write the start to your `作業ログ` row in `docs/project-status.md` as `Update the Status Ledger` describes, and keep the epoch value for the elapsed-time calculation.
 4. If the Windows command returns an error, retry once with `Get-Date -Format "yyyy-MM-dd HH:mm:ss zzz"`.
 5. After the substantive work and its validation, but before the final status or execution-record edit, invoke the same clock command again. Record its `datetime` as the end datetime and calculate elapsed duration from the captured epoch values. If the fallback command was required, parse the two returned datetimes with their offsets and subtract them.
-6. Append records. Never replace earlier execution rows. For a phase, also update the matching `工程一覧` row. Record the phase start when it becomes `作業中`, and its end and duration when it becomes `仮完了`, `入力待ち（HIL）`, `確認待ち`, or `完了`.
+6. Append records. Never replace earlier execution rows in output documents or other `作業ログ` rows. For a phase, the HVE Lead also updates the matching `工程一覧` row: the phase start when it becomes `作業中`, and its end and duration when it becomes `仮完了`, `入力待ち（HIL）`, `確認待ち`, or `完了`.
 7. Leave a running process without an end datetime. Before entering HIL, capture the current end time; after resumption, capture a new start time. Do not count waiting time unless the record explicitly says it includes waiting time.
 8. Use `時刻未記録` for the current operation only when the runtime has no terminal tool, or when the primary call and its fallback both actually returned errors. Uncertainty about command support is not a reason; make the calls. Record the attempted commands and errors, set duration to `未記録`, and report that time recording failed. Keep `時刻未記録` for historical entries whose actual time cannot be recovered.
-9. Specialists record their own times with their own calls; a parent-captured time does not substitute. They return the captured values, elapsed duration, and any command errors in their result.
+9. Specialists record their own times with their own calls; a parent-captured time does not substitute. They write them in their own output document and their own `作業ログ` row, and also return the captured values, elapsed duration, and any command errors in their result.
+
+## Update the Status Ledger
+
+This section is the single definition of when and by whom `docs/project-status.md` is updated. It exists so the user can watch every agent's progress in the file while the work runs, including parallel work, instead of seeing it only after results return.
+
+1. Writers: each piece of work has one `作業ログ` row with a `W-NNN` ID. The specialist named in a row updates only that row. The read-only `Quality Reviewer` has no edit tool, so the HVE Lead sets its row to `実行中` at handoff and fills in its returned times at the end. The `Hyper Velocity Engineering Lead` writes everything else: new rows, `現在の状況`, `工程一覧`, HIL, open questions, assumptions, skipped work, and `次にすること`.
+2. Specialist updates, each made right away rather than at the end:
+	- At start: capture the clock, then set `開始日時`, `実行中`, and `最新の進捗`.
+	- After finishing each output file or other milestone named in the handoff: update `最新の進捗` with the time and what was finished, for example `14:05 research/01-market-landscape.md を作成（2/3）`.
+	- At the end, before returning the result: capture the clock, then set `終了日時`, `所要時間`, `終了`, and the final `最新の進捗`.
+3. Safe edits while others write the same file: re-read `docs/project-status.md` immediately before each edit and replace only the single line that contains your `W-NNN`. If the edit fails, re-read and retry once. If it still fails, report the missed update in your result; the HVE Lead writes it.
+4. HVE Lead updates, each made before the tool call that starts the next piece of work:
+	- Before a handoff: add the `W-NNN` row with process, work, owner, output, and `依頼済み`, and pass the ID in the handoff. Set `現在の状況` and the `工程一覧` row when the process changes.
+	- Right after a specialist returns, before any other work: check that its row shows `終了` (or set `差し戻し`) with times, fill in anything missing from the returned values, and refresh `経過時間`. When several results arrive together, check each one before acting on any of them.
+	- Before switching processes: close the current `工程一覧` row (`仮完了`, `入力待ち（HIL）`, `確認待ち`, or `完了`), then set the next one to `作業中`.
+	- For work the HVE Lead does itself, including status-file edits that take real effort: add its own row and update it at start and end in the same way.
+5. Done rule: a piece of work is not done, and work that depends on it does not start, until its `作業ログ` row is `終了`.
+6. Parallel work: run specialists in parallel only when their outputs do not overlap. Each one has its own row; the next process starts only after every row of the current process is `終了`.
+7. Before ending a turn, check that no finished work is still `依頼済み` or `実行中` and that `最終更新日時` is current.
 
 ## Start a Phase
 
@@ -145,4 +176,4 @@ When new evidence invalidates confirmed work, record the triggering evidence, af
 
 ## Handoff Contract
 
-A handoff states current phase, approved inputs, exact output path, completion criteria, stable IDs affected, constraints, open questions, and prohibited scope. For any creation, update, or review of a project output, require the specialist to capture and return the actual start datetime, end datetime, and elapsed duration according to `Record Execution Time`. Do not assign concurrent edits to the same artifact.
+A handoff states current phase, approved inputs, exact output path, completion criteria, stable IDs affected, constraints, open questions, and prohibited scope. For any creation, update, or review of a project output, require the specialist to capture and return the actual start datetime, end datetime, and elapsed duration according to `Record Execution Time`. Include the `W-NNN` ID of the specialist's `作業ログ` row and the milestones to report, and tell the specialist to update only that row of `docs/project-status.md`, as `Update the Status Ledger` describes. Do not assign concurrent edits to the same artifact.

@@ -2,7 +2,6 @@
 name: Product Planner
 description: "Use for product requirements, user stories, measurable acceptance criteria, non-functional requirements, MVP prioritization, scope exclusions, and outcome-based release boundaries."
 tools: [execute, read, search, edit, vscode/askQuestions]
-model: ['Claude Opus 5.5 (copilot)', 'Claude Opus 5 (copilot)', 'Claude Sonnet 5.5 (copilot)', 'Claude Sonnet 5 (copilot)']
 user-invocable: false
 ---
 
@@ -34,3 +33,7 @@ You convert approved research and business analysis into a testable product defi
 ## Output
 
 Return changed paths, proposed MVP outcome and requirements, exclusions, unresolved product decisions, and readiness for architecture.
+
+In `短時間試作`, produce only the compact output listed for your process in `artifact-workflow` > `短時間試作`, and treat `仮完了` upstream work as approved input.
+
+When the handoff gives a `W-NNN` ID, update only that `作業ログ` row in `docs/project-status.md` at start, after each output, and at the end, as `artifact-workflow` > `Update the Status Ledger` describes.
