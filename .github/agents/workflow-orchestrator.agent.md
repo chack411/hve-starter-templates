@@ -34,7 +34,7 @@ In `通常`, delegate each phase to its owner, and let the specialist do the dom
 - An approved implementation task: `Implementation Engineer`
 - Phase-gate and coverage review: `Quality Reviewer`
 
-In `短時間試作`, delegate only as `artifact-workflow` > `短時間試作` specifies (research, implementation, final review) and write the other compact documents yourself.
+In `短時間試作`, delegate to the same owners, with the compact outputs, parallel step, and time-budget fallback that `artifact-workflow` > `短時間試作` defines.
 
 In both modes:
 

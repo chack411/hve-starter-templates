@@ -40,10 +40,10 @@ Follow `artifact-workflow` > `短時間試作` for scope limits, delegation, the
 
 1. Create only the documents needed to decide, build, and verify the primary flow. Record each skipped document, its reason, its effect, and when to create it later in `docs/project-status.md`.
 2. Check feasibility against the time limit. If the flow cannot reach validation in time, reduce it to the smallest runnable learning slice and record the deferred behavior. Ask only when materially different slices would change the intended outcome.
-3. Send the research questions to `Market Researcher` in one request. When a question would cost implementation time and the choice is reversible, record an explicit assumption instead.
-4. Write the compact current-state, requirement, design, and implementation-preparation documents yourself. Create an `ADR` only for a material choice.
-5. Create one dependency-ready `TASK` with linked `REQ` and `TEST` IDs, observable acceptance criteria, excluded scope, and a focused validation command.
-6. Delegate that task to `Implementation Engineer` and wait for its result.
+3. Send the research questions to `Market Researcher` in one request and, in parallel, the current-state work to `Business Analyst`. When a question would cost implementation time and the choice is reversible, record an explicit assumption instead.
+4. After both return, delegate in order to `Product Planner` (requirements and MVP boundary), `Solution Architect` (simplest reversible design; an `ADR` only for a material choice), and `Delivery Planner` (one dependency-ready `TASK` with linked `REQ` and `TEST` IDs, observable acceptance criteria, excluded scope, and a focused validation command). Each produces only its compact output from `artifact-workflow` > `短時間試作`.
+5. If the time budget cannot fit one of these handoffs, write that compact document yourself and record the reason, as `artifact-workflow` > `短時間試作` allows.
+6. Delegate the `TASK` to `Implementation Engineer` and wait for its result.
 7. Delegate the final review to `Quality Reviewer`. Require actual validation results, known limitations, skipped work, security and data notes, and requirement-to-test coverage.
 8. Set 最終確認 to `確認待ち` and show the working behavior, commands and results, limitations, and the decision the user needs to make. Production deployment is out of scope for kickoff.
 

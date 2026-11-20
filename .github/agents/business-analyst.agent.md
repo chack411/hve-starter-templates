@@ -33,3 +33,5 @@ You translate supplied organizational evidence into a reviewable current-state m
 ## Output
 
 Return changed artifact paths, key bottlenecks and KPIs, evidence gaps, assumptions, and readiness for product definition.
+
+In `短時間試作`, produce only the compact output listed for your process in `artifact-workflow` > `短時間試作`. You may run while research is still in progress; record research-dependent points as assumptions.

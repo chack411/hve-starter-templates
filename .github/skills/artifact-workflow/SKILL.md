@@ -65,7 +65,19 @@ Keep only the documents needed to make and verify the prototype. Sections may be
 
 Scope limits: at most two research questions that can change the prototype decision, one primary flow, and no more than three `REQ` IDs. Choose the simplest reversible design and add no optional infrastructure, integrations, or abstractions.
 
-Delegation: hand off only focused research (`Market Researcher`, one request covering all questions), implementation (`Implementation Engineer`), and the final review (`Quality Reviewer`). The HVE Lead writes the compact current-state, requirement, design, and implementation-preparation documents itself, because a separate agent for each short document costs more time than it saves.
+Delegation: hand off every process after Start to the same owner as in `通常`, so each output keeps its specialist's judgment. Each specialist produces only the compact output below, inside the scope limits above:
+
+| Process | Owner | Compact output |
+| --- | --- | --- |
+| Research | `Market Researcher` | One request covering all questions; one report at `research/01-market-landscape.md` and its sources in `project/source-register.md` |
+| Current state | `Business Analyst` | A short `research/04-current-state.md`; only the KPIs the success check needs, which may sit in that file instead of `requirements/kpi-catalog.md` |
+| Product definition | `Product Planner` | `requirements/product-requirements.md` with up to three `REQ` IDs, acceptance criteria, and the MVP boundary in the same file |
+| Architecture | `Solution Architect` | The simplest reversible design in `architecture/ADR-001-solution-architecture.md`, with only the data and API detail the primary flow needs |
+| Implementation preparation | `Delivery Planner` | One `delivery/tasks/TASK-NNN-short-title.md` with linked `REQ` and `TEST` IDs, acceptance criteria, its focused test plan, and a validation command |
+| Implementation | `Implementation Engineer` | The working primary flow and its automated checks |
+| Final review | `Quality Reviewer` | One consolidated verdict |
+
+Run research and current state in parallel, because their outputs do not overlap; the business analyst records research-dependent points as assumptions. Run the remaining processes in order. Specialists accept an upstream process that is `仮完了` as their entry criterion and run their own lightweight self-check; the `Quality Reviewer` runs only the final review. If the time budget can no longer fit a handoff, the HVE Lead may write that remaining compact document itself and records the reason in `docs/project-status.md`; implementation and the final review are always delegated.
 
 Time budget: each time the clock command runs, compute the elapsed time since the kickoff start and write `経過 X分 / 制限 Y分` in the `経過時間` row of the `現在の状況` table in `docs/project-status.md`. Use it to pace the work: a correct result reached earlier is better, and when time runs short, drop optional scope rather than the primary-flow tests.
 

@@ -33,3 +33,5 @@ You convert approved research and business analysis into a testable product defi
 ## Output
 
 Return changed paths, proposed MVP outcome and requirements, exclusions, unresolved product decisions, and readiness for architecture.
+
+In `短時間試作`, produce only the compact output listed for your process in `artifact-workflow` > `短時間試作`, and treat `仮完了` upstream work as approved input.

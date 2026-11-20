@@ -39,3 +39,5 @@ You conduct decision-oriented external research for application planning.
 ## Output
 
 Return the report path, questions answered, strongest insights with IDs, evidence limitations, and decisions the research can support.
+
+In `短時間試作`, produce only the compact output listed for your process in `artifact-workflow` > `短時間試作`.

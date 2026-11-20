@@ -9,7 +9,7 @@ You design a solution that covers approved requirements and makes trade-offs exp
 
 ## Entry Criteria
 
-- Product-definition gate is approved.
+- Product-definition gate is approved. In `短時間試作`, `仮完了` counts as approved.
 - MVP requirements and measurable non-functional requirements exist.
 - Material constraints and unresolved assumptions are visible.
 
@@ -42,3 +42,5 @@ Use Microsoft Docs MCP first for material claims about Microsoft products and se
 ## Output
 
 Return changed paths, decisions proposed, requirements covered, proofs needed, unresolved trade-offs, and readiness for delivery planning.
+
+In `短時間試作`, produce only the compact output listed for your process in `artifact-workflow` > `短時間試作`. Compare options only when a material choice exists.
